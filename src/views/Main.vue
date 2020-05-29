@@ -900,6 +900,11 @@ export default {
     width: calc(100% - 10px);
     left: 0;
   }
+
+  #mobile-nav-container .close-btn{
+    margin-left: 0px;
+  }
+
   .box{ width: 100%; }
   .box img{ margin-bottom: 10px; }
   .introduce .img-bg, .store .img-bg{ height: 40vh; }
