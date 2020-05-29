@@ -1,0 +1,248 @@
+<template>
+  <div class="main">
+    <header>
+      <div class="h-container mw1440 fs12">
+        <div class="left-bx">
+          <a href="" class="logo">
+            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="">
+          </a>
+
+          <nav>
+            <a href="">Microsoft 365</a>
+            <a href="">Office</a>
+            <a href="">Windows</a>
+            <a href="">Surface</a>
+            <a href="">Xbox</a>
+            <a href="">지원</a>
+          </nav>
+        </div>
+        
+        <div class="right-bx">
+          <button class="msAll">
+            <span>Microsoft 전체</span>
+            <v-icon>mdi-chevron-down</v-icon>
+          </button>
+          <button class="search">
+            <span>검색</span>
+            <v-icon>mdi-magnify</v-icon>
+          </button>
+          <a href="" class="cart">
+            <span>카트</span>
+            <v-icon>mdi-cart-outline</v-icon>
+          </a>
+          <a href="" class="login">
+            <span>로그인</span>
+            <v-icon>mdi-account-circle-outline</v-icon>
+          </a>
+        </div>
+
+        <div class="fs12" id="msAll-dropdown-menu">
+        <div class="dropdown-top">
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">소프트웨어</p>
+            <a href="">Windows용 앱</a>
+            <a href="">OneDrive</a>
+            <a href="">Outlook</a>
+            <a href="">Skype</a>
+            <a href="">OneNote</a>
+          </div>
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">PC 및 장치</p>
+            <a href="">PCs &amp; tablets</a>
+            <a href="">주변 기기</a>
+          </div>
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">엔터테인먼트</p>
+            <a href="">Xbox 및 게임</a>
+            <a href="">게임</a>
+            <a href="">Windows 게임</a>
+          </div>
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">기업 고객용</p>
+            <a href="">Microsoft Azure</a>
+            <a href="">Microsoft Dynamics 365</a>
+            <a href="">Microsoft 365</a>
+            <a href="">Microsoft Industry</a>
+            <a href="">데이터 플랫폼</a>
+            <a href="">불륨 라이선싱</a>
+          </div>
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">Developer &amp; IT</p>
+            <a href="">.NET</a>
+            <a href="">Visual Studio</a>
+            <a href="">Windows Server</a>
+            <a href="">Windows 앱 개발</a>
+            <a href="">문서</a>
+          </div>
+          <div class="dropdown-group">
+            <p style="font-weight: bold;">기타</p>
+            <a href="">Microsoft Store</a>
+            <a href="">무료 다운로드 및 보안</a>
+            <a href="">교육</a>
+          </div>
+        </div>
+
+        <div class="dropdown-bottom">
+          <a href="">
+            <span>사이트맵 보기</span>
+            <v-icon>mdi-chevron-right</v-icon>
+          </a>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <main>
+      <router-view />
+    </main>
+
+    <footer></footer>
+  </div>
+</template>
+
+
+<script>
+export default {
+}
+</script>
+
+
+<style lang="scss" scoped>
+/* header */
+  header{    
+    .h-container{
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+    .left-bx{
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+    .logo{
+      padding: 18px 10px;
+      img{ height: 24px; }
+    }
+    nav{
+      a{
+        height: 60px;
+        line-height: 60px;
+        padding: 0 10px;
+      }
+    }
+
+    .right-bx{
+      height: 60px;
+      display: flex;
+      align-items: center;
+      button, a{
+        height: 60px;
+        line-height: 60px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        .v-icon{
+          font-size: 20px;
+          margin-left: 6px;
+          color: #000;
+        }
+      }
+      button span, .cart span{ position: relative; }
+      button span::before, .cart span::before{
+        content: "";
+        background: #000;
+        height: 2px;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        transform: translate(-50%, 0%);
+        transition: .2s;
+      }
+      button:hover span:before, .cart:hover span:before{ width: 100%; }
+      .msAll .v-icon{ margin-left: 4px; }
+      .login .v-icon{ font-size: 30px; }
+    }
+  }
+
+   #msAll-dropdown-menu{
+    background-color: #eee;
+    color: #323232;
+    width: calc(100% - 80px);
+    // max-height: 0;
+    position: absolute;
+    top: 59px;
+    left: 40px;
+    z-index: 2;
+    overflow: hidden;
+    transition: .3s;
+    .dropdown-top{
+      display: flex;
+      padding: 10px 0;
+      border: 1px solid #d6d6d6;
+    }
+    .dropdown-group{
+      width: 16.66667%;
+      display: flex;
+      flex-direction: column;
+      p{ padding: 12px 0 12px 24px; }
+      a{
+        width: 100%;
+        padding: 12px 0 12px 24px;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+
+    .dropdown-bottom{
+      background-color: #d6d6d6;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      a{
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .v-icon{ color: #000;  }
+      }
+      a:hover span{ text-decoration: underline; }
+    }
+  }
+
+
+
+
+/* main */
+  main{}
+
+
+
+
+/* footer */
+
+
+
+
+
+@media (max-width: 1399px) {
+  header{
+    .right-bx{
+      .search, .cart, .login{
+        span{ display: none; }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 859px) {
+  header{
+    .logo{
+      position: absolute;
+
+    }
+  }
+}
+</style>
